@@ -27,6 +27,16 @@ module.exports = {
   },
   rules: {
     // Add your own rules here to override ones from the extended configs.
+    'react/react-in-jsx-scope': 'off',
+    'no-unneeded-ternary': [2, { defaultAssignment: false }],
+    '@typescript-eslint/strict-boolean-expressions': [2],
+    '@typescript-eslint/no-unused-vars': [
+      2,
+      {
+        varsIgnorePattern: '^_',
+        argsIgnorePattern: '^_',
+      },
+    ],
   },
   parserOptions: {
     tsconfigRootDir: __dirname,
