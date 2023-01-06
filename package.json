@@ -8,11 +8,18 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "npm run lint",
-    "lint": "eslint . --ext .ts,.tsx",
-    "prepare": "husky install"
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "lint-staged": {
-    "*.{js,jsx}": "eslint --fix"
+    "*.{js,ts,jsx,tsx}": [
+      "npm run lint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint",
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "react": "^18.2.0",
